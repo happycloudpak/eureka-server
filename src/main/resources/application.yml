@@ -17,7 +17,7 @@ server:
 eureka: 
   instance:
     #hostname: ${HOSTNAME}.eureka
-    hostname: "http://eureka-server-0.eureka-server"
+    hostname: http://eureka-server-0.eureka-server
   server: 
     renewal-percent-threshold: 0.6   
   client: 
