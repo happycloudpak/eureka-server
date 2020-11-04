@@ -42,14 +42,14 @@ spec:
           httpGet:
             path: /
             port: {{ SERVICE_TARGET_PORT }}
-          initialDelaySeconds: 30
+          initialDelaySeconds: 10
           periodSeconds: 10
           timeoutSeconds: 5
         readinessProbe:
           httpGet:
             path: /
             port: {{ SERVICE_TARGET_PORT }}
-          initialDelaySeconds: 30
+          initialDelaySeconds: 10
           periodSeconds: 10
           timeoutSeconds: 5
 ---
