@@ -53,6 +53,7 @@ sed "s@{{ SERVICE_TARGET_PORT_ENV }}@${service_target_port_env}@g" - | \
 sed "s@{{ SERVICE_TARGET_PORT }}@${service_target_port}@g" - | \
 sed "s@{{ SERVICE_PORT }}@${service_port}@g" - | \
 sed "s@{{ SERVICE_REPLICAS }}@${service_replicas}@g" - | \
+sed "s@{{ EUREKA_SERVERS }}@${eureka_servers}@g" - | \
 sed "s@{{ SERVICE_HOST }}@${service_host}@g" - > ${basedir}/cicd/deploy-converted.yaml
 
 if [ $? -eq 0 ]; then
