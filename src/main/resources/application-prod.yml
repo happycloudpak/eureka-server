@@ -6,7 +6,7 @@ eureka:
   server: 
     renewal-percent-threshold: 0.6   
   client: 
-    register-with-eureka: false 
+    register-with-eureka: true 
     fetch-registry: false
     #eureka-server-port: ${server.port}
     service-url:
