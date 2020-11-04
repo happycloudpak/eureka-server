@@ -5,6 +5,7 @@ metadata:
   labels:
     app: {{ SERVICE_NAME }}
 spec:
+  serviceName: {{ SERVICE_NAME }}  #MUST for StatefulSet
   selector:
     matchLabels:
       app: {{ SERVICE_NAME }}
