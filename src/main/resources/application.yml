@@ -8,6 +8,21 @@
 # * 만약, 상호 복제 시 connection refused 에러가 나면 eureka.client.eureka-server-port를 지정 
 ##########################
 spring:
+  profiles: default
+  application:
+    name: eureka-server
+server:
+  port: ${EUREKA_PORT1:18761}
+eureka: 
+  instance: 
+    hostname: ${EUREKA_HOST1:eureka-server-0.eureka-server}
+  server: 
+    renewal-percent-threshold: 0.6
+  client: 
+    register-with-eureka: false 
+    fetch-registry: true 
+---
+spring:
   profiles: eureka1
   application:
     name: eureka-server
