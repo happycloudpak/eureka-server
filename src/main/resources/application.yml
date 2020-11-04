@@ -1,0 +1,78 @@
+##########################
+# ㅇ standalone mode: profile 'default' 이용 
+# ㅇ replica mode: 
+#   - 필요한 만큼 profile을 정의
+#   - eureka.client.service-url.defaultZone에 다른 eureka server주소를 지정 
+#   - eureka.server.renewal-percent-threshold: '..renewals are lesser than threshold..'경고가 나오는 경우 이 값을 낮추면 됨 
+# * eureka하위의 key이름은 camel형식과 dash사용 형식 모두 지원
+# * 만약, 상호 복제 시 connection refused 에러가 나면 eureka.client.eureka-server-port를 지정 
+##########################
+---
+spring:
+  profiles: default
+  application:
+    name: eureka-server
+server: 
+  port: 8761
+eureka: 
+  instance: 
+    hostname: default.eureka.svcmesh.com
+  client: 
+    registerWithEureka: false 
+    fetchRegistry: false 
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+---
+spring:
+  profiles: eureka1
+  application:
+    name: eureka-server
+server:
+  port: ${EUREKA_PORT1:18761}
+eureka: 
+  instance: 
+    hostname: eureka1.svcmesh.com
+  server: 
+    renewal-percent-threshold: 0.6
+  client: 
+    register-with-eureka: true 
+    fetch-registry: true 
+    #eureka-server-port: ${server.port}
+    service-url:
+      defaultZone: http://eureka2.svcmesh.com:${EUREKA_PORT2:18762}/eureka/, http://eureka3.svcmesh.com:${EUREKA_PORT3:18763}/eureka/
+---
+spring: 
+  profiles: eureka2
+  application:
+    name: eureka-server
+server: 
+  port: ${EUREKA_PORT2:18762}
+eureka: 
+  instance:
+    hostname: eureka2.svcmesh.com 
+  server: 
+    renewal-percent-threshold: 0.6   
+  client: 
+    register-with-eureka: true 
+    fetch-registry: true 
+    #eureka-server-port: ${server.port}
+    service-url:
+      defaultZone: http://eureka1.svcmesh.com:${EUREKA_PORT1:18761}/eureka/, http://eureka3.svcmesh.com:${EUREKA_PORT3:18763}/eureka/
+---
+spring: 
+  profiles: eureka3
+  application:
+    name: eureka-server
+server: 
+  port: ${EUREKA_PORT3:18763}
+eureka: 
+  instance:
+    hostname: eureka3.svcmesh.com 
+  server: 
+    renewal-percent-threshold: 0.6
+  client: 
+    register-with-eureka: true 
+    fetch-registry: true 
+    #eureka-server-port: ${server.port}
+    service-url:
+      defaultZone: http://eureka1.svcmesh.com:${EUREKA_PORT1:18761}/eureka/, http://eureka2.svcmesh.com:${EUREKA_PORT2:18762}/eureka/     
