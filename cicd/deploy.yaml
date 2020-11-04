@@ -59,7 +59,7 @@ metadata:
   name: {{ SERVICE_NAME }}
 spec:
   type: ClusterIP
-  ClusterIP: None   # make it as headless service
+  clusterIP: None   # make it as headless service
   selector:
     app: {{ SERVICE_NAME }}
   ports:
