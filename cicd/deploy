@@ -35,7 +35,7 @@ done < ${basedir}/cicd/config.properties
 kubectl config use-context ${context}
 
 # check current version
-CURTAG=$(kubectl get deploy ${image_repository} -o yaml | grep "image: ${image_registry}/${image_project}/${image_repository}:" | cut -d ':' -f3)
+CURTAG=$(kubectl get statefuleset ${image_repository} -o yaml | grep "image: ${image_registry}/${image_project}/${image_repository}:" | cut -d ':' -f3)
 echo "FIND CURRENT VERSION: ${CURTAG}"
 
 # 동일한 서비스의 동일한 버전이 있으면 변경내용 반영위해 기존 deployment 삭제
