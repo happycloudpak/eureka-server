@@ -13,7 +13,7 @@ spring:
   application:
     name: eureka-server
 server: 
-  port: 8761
+  port: ${SERVER_PORT:18761}
 eureka: 
   instance: 
     hostname: default.eureka.svcmesh.com
