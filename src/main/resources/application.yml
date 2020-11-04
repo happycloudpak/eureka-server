@@ -5,7 +5,7 @@
 #   - eureka.client.service-url.defaultZone에 다른 eureka server주소를 지정 
 #   - eureka.server.renewal-percent-threshold: '..renewals are lesser than threshold..'경고가 나오는 경우 이 값을 낮추면 됨 
 # * eureka하위의 key이름은 camel형식과 dash사용 형식 모두 지원
-# * 만약, 상호 복제 시 connection refused 에러가 나면 eureka.client:eureka-server-port를 지정 
+# * 만약, 상호 복제 시 connection refused 에러가 나면 eureka.client.eureka-server-port를 지정 
 ##########################
 spring:
   profiles: eureka1
@@ -15,7 +15,7 @@ server:
   port: ${EUREKA_PORT1:18761}
 eureka: 
   instance: 
-    hostname: ${EUREKA_HOST1:eureka-server-0:eureka-server}
+    hostname: ${EUREKA_HOST1:eureka-server-0.eureka-server}
   server: 
     renewal-percent-threshold: 0.6
   client: 
@@ -23,7 +23,7 @@ eureka:
     fetch-registry: true 
     #eureka-server-port: ${server.port}
     service-url:
-      defaultZone: http://${EUREKA_HOST2:eureka-server-1:eureka-server}:${EUREKA_PORT2:18762}/eureka/, http://${EUREKA_HOST3:eureka-server-2:eureka-server}:${EUREKA_PORT3:18763}/eureka/
+      defaultZone: http://${EUREKA_HOST2:eureka-server-1.eureka-server}:${EUREKA_PORT2:18762}/eureka/, http://${EUREKA_HOST3:eureka-server-2.eureka-server}:${EUREKA_PORT3:18763}/eureka/
 ---
 spring: 
   profiles: eureka2
@@ -33,7 +33,7 @@ server:
   port: ${EUREKA_PORT2:18762}
 eureka: 
   instance:
-    hostname: ${EUREKA_HOST2:eureka-server-1:eureka-server}
+    hostname: ${EUREKA_HOST2:eureka-server-1.eureka-server}
   server: 
     renewal-percent-threshold: 0.6   
   client: 
@@ -41,7 +41,7 @@ eureka:
     fetch-registry: true 
     #eureka-server-port: ${server.port}
     service-url:
-      defaultZone: http://${EUREKA_HOST1:eureka-server-0:eureka-server}:${EUREKA_PORT1:18761}/eureka/, http://${EUREKA_HOST3:eureka-server-2:eureka-server}:${EUREKA_PORT3:18763}/eureka/
+      defaultZone: http://${EUREKA_HOST1:eureka-server-0.eureka-server}:${EUREKA_PORT1:18761}/eureka/, http://${EUREKA_HOST3:eureka-server-2.eureka-server}:${EUREKA_PORT3:18763}/eureka/
 ---
 spring: 
   profiles: eureka3
@@ -51,7 +51,7 @@ server:
   port: ${EUREKA_PORT3:18763}
 eureka: 
   instance:
-    hostname: ${EUREKA_HOST3:eureka-server-2:eureka-server}
+    hostname: ${EUREKA_HOST3:eureka-server-2.eureka-server}
   server: 
     renewal-percent-threshold: 0.6
   client: 
@@ -59,4 +59,4 @@ eureka:
     fetch-registry: true 
     #eureka-server-port: ${server.port}
     service-url:
-      defaultZone: http://${EUREKA_HOST1:eureka-server-0:eureka-server}:${EUREKA_PORT1:18761}/eureka/, http://${EUREKA_HOST2:eureka-server-1:eureka-server}:${EUREKA_PORT2:18762}/eureka/     
+      defaultZone: http://${EUREKA_HOST1:eureka-server-0.eureka-server}:${EUREKA_PORT1:18761}/eureka/, http://${EUREKA_HOST2:eureka-server-1.eureka-server}:${EUREKA_PORT2:18762}/eureka/     
