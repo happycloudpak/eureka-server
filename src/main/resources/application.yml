@@ -31,7 +31,7 @@ server:
   port: ${EUREKA_PORT1:18761}
 eureka: 
   instance: 
-    hostname: ${EUREKA_HOST1:eureka-0.eureka-server}
+    hostname: ${EUREKA_HOST1:eureka-server-0.eureka-server}
   server: 
     renewal-percent-threshold: 0.6
   client: 
@@ -39,7 +39,7 @@ eureka:
     fetch-registry: true 
     #eureka-server-port: ${server.port}
     service-url:
-      defaultZone: http://${EUREKA_HOST2:eureka2.svcmesh.com}:${EUREKA_PORT2:18762}/eureka/, http://${EUREKA_HOST3:eureka3.svcmesh.com}:${EUREKA_PORT3:18763}/eureka/
+      defaultZone: http://${EUREKA_HOST2:eureka-server-1.eureka-server}:${EUREKA_PORT2:18762}/eureka/, http://${EUREKA_HOST3:eureka-server-2.eureka-server}:${EUREKA_PORT3:18763}/eureka/
 ---
 spring: 
   profiles: eureka2
@@ -49,7 +49,7 @@ server:
   port: ${EUREKA_PORT2:18762}
 eureka: 
   instance:
-    hostname: ${EUREKA_HOST2:eureka-1.eureka-server}
+    hostname: ${EUREKA_HOST2:eureka-server-1.eureka-server}
   server: 
     renewal-percent-threshold: 0.6   
   client: 
@@ -57,7 +57,7 @@ eureka:
     fetch-registry: true 
     #eureka-server-port: ${server.port}
     service-url:
-      defaultZone: http://${EUREKA_HOST1:eureka1.svcmesh.com}:${EUREKA_PORT1:18761}/eureka/, http://${EUREKA_HOST3:eureka3.svcmesh.com}:${EUREKA_PORT3:18763}/eureka/
+      defaultZone: http://${EUREKA_HOST1:eureka-server-0.eureka-server}:${EUREKA_PORT1:18761}/eureka/, http://${EUREKA_HOST3:eureka-server-2.eureka-server}:${EUREKA_PORT3:18763}/eureka/
 ---
 spring: 
   profiles: eureka3
@@ -67,7 +67,7 @@ server:
   port: ${EUREKA_PORT3:18763}
 eureka: 
   instance:
-    hostname: ${EUREKA_HOST3:eureka-2.eureka-server}
+    hostname: ${EUREKA_HOST3:eureka-server-2.eureka-server}
   server: 
     renewal-percent-threshold: 0.6
   client: 
@@ -75,4 +75,4 @@ eureka:
     fetch-registry: true 
     #eureka-server-port: ${server.port}
     service-url:
-      defaultZone: http://${EUREKA_HOST1:eureka1.svcmesh.com}:${EUREKA_PORT1:18761}/eureka/, http://${EUREKA_HOST2:eureka2.svcmesh.com}:${EUREKA_PORT2:18762}/eureka/     
+      defaultZone: http://${EUREKA_HOST1:eureka-server-0.eureka-server}:${EUREKA_PORT1:18761}/eureka/, http://${EUREKA_HOST2:eureka-server-1.eureka-server}:${EUREKA_PORT2:18762}/eureka/     
