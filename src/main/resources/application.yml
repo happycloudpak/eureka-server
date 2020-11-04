@@ -9,20 +9,6 @@
 ##########################
 spring: 
   profiles:
-    active: ${RTE_PROFILE:default}
+    active: ${RTE_PROFILE:dev}
   application:
     name: eureka-server
-server: 
-  port: ${EUREKA_PORT1:18761}
-eureka: 
-  instance:
-    #hostname: ${HOSTNAME}.eureka
-    hostname: eureka-server-0.eureka-server
-  server: 
-    renewal-percent-threshold: 0.6   
-  client: 
-    register-with-eureka: true 
-    fetch-registry: true 
-    #eureka-server-port: ${server.port}
-    service-url:
-      defaultZone: ${EUREKA_SERVERS}
