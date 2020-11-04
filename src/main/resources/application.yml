@@ -31,7 +31,7 @@ server:
   port: ${EUREKA_PORT1:18761}
 eureka: 
   instance: 
-    hostname: eureka1.svcmesh.com
+    hostname: ${EUREKA_HOST1:eureka1.svcmesh.com}
   server: 
     renewal-percent-threshold: 0.6
   client: 
@@ -39,7 +39,7 @@ eureka:
     fetch-registry: true 
     #eureka-server-port: ${server.port}
     service-url:
-      defaultZone: http://eureka2.svcmesh.com:${EUREKA_PORT2:18762}/eureka/, http://eureka3.svcmesh.com:${EUREKA_PORT3:18763}/eureka/
+      defaultZone: http://${EUREKA_HOST2:eureka2.svcmesh.com}:${EUREKA_PORT2:18762}/eureka/, http://${EUREKA_HOST3:eureka3.svcmesh.com}:${EUREKA_PORT3:18763}/eureka/
 ---
 spring: 
   profiles: eureka2
@@ -49,7 +49,7 @@ server:
   port: ${EUREKA_PORT2:18762}
 eureka: 
   instance:
-    hostname: eureka2.svcmesh.com 
+    hostname: ${EUREKA_HOST2:eureka2.svcmesh.com}
   server: 
     renewal-percent-threshold: 0.6   
   client: 
@@ -57,7 +57,7 @@ eureka:
     fetch-registry: true 
     #eureka-server-port: ${server.port}
     service-url:
-      defaultZone: http://eureka1.svcmesh.com:${EUREKA_PORT1:18761}/eureka/, http://eureka3.svcmesh.com:${EUREKA_PORT3:18763}/eureka/
+      defaultZone: http://${EUREKA_HOST1:eureka1.svcmesh.com}:${EUREKA_PORT1:18761}/eureka/, http://${EUREKA_HOST3:eureka3.svcmesh.com}:${EUREKA_PORT3:18763}/eureka/
 ---
 spring: 
   profiles: eureka3
@@ -67,7 +67,7 @@ server:
   port: ${EUREKA_PORT3:18763}
 eureka: 
   instance:
-    hostname: eureka3.svcmesh.com 
+    hostname: ${EUREKA_HOST3:eureka3.svcmesh.com}
   server: 
     renewal-percent-threshold: 0.6
   client: 
@@ -75,4 +75,4 @@ eureka:
     fetch-registry: true 
     #eureka-server-port: ${server.port}
     service-url:
-      defaultZone: http://eureka1.svcmesh.com:${EUREKA_PORT1:18761}/eureka/, http://eureka2.svcmesh.com:${EUREKA_PORT2:18762}/eureka/     
+      defaultZone: http://${EUREKA_HOST1:eureka1.svcmesh.com}:${EUREKA_PORT1:18761}/eureka/, http://${EUREKA_HOST2:eureka2.svcmesh.com}:${EUREKA_PORT2:18762}/eureka/     
