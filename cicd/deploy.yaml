@@ -24,7 +24,10 @@ spec:
         - name: SERVER_PORT
           value: "{{ SERVICE_TARGET_PORT }}"   
         - name: EUREKA_SERVERS
-          value: {{ EUREKA_SERVERS }}                                                     
+          value: {{ EUREKA_SERVERS }}  
+        - name: RTE_PROFILE
+          value: {{ RTE_PROFILE }}            
+                                                             
         ports:
         - name: port1
           containerPort: 18180
