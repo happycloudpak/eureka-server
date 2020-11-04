@@ -31,7 +31,7 @@ server:
   port: ${EUREKA_PORT1:18761}
 eureka: 
   instance: 
-    hostname: ${EUREKA_HOST1:eureka1.svcmesh.com}
+    hostname: ${EUREKA_HOST1:eureka-0.eureka-server}
   server: 
     renewal-percent-threshold: 0.6
   client: 
@@ -49,7 +49,7 @@ server:
   port: ${EUREKA_PORT2:18762}
 eureka: 
   instance:
-    hostname: ${EUREKA_HOST2:eureka2.svcmesh.com}
+    hostname: ${EUREKA_HOST2:eureka-1.eureka-server}
   server: 
     renewal-percent-threshold: 0.6   
   client: 
@@ -67,7 +67,7 @@ server:
   port: ${EUREKA_PORT3:18763}
 eureka: 
   instance:
-    hostname: ${EUREKA_HOST3:eureka3.svcmesh.com}
+    hostname: ${EUREKA_HOST3:eureka-2.eureka-server}
   server: 
     renewal-percent-threshold: 0.6
   client: 
