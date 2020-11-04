@@ -16,7 +16,8 @@ server:
   port: ${EUREKA_PORT1:18761}
 eureka: 
   instance:
-    hostname: ${HOSTNAME}.eureka
+    #hostname: ${HOSTNAME}.eureka
+    hostname: "http://eureka-server-0.eureka-server"
   server: 
     renewal-percent-threshold: 0.6   
   client: 
