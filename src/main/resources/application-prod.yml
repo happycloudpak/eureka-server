@@ -7,7 +7,7 @@ eureka:
     renewal-percent-threshold: 0.6   
   client: 
     register-with-eureka: true 
-    fetch-registry: false
+    fetch-registry: true
     #eureka-server-port: ${server.port}
     service-url:
       defaultZone: ${EUREKA_SERVERS}
