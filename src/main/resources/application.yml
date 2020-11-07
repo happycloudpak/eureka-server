@@ -8,7 +8,8 @@
 # * 만약, 상호 복제 시 connection refused 에러가 나면 eureka.client.eureka-server-port를 지정 
 ##########################
 spring: 
-  profiles:
-    active: ${RTE_PROFILE:dev}
   application:
     name: eureka-server
+  profiles:
+    active: local
+    include: common

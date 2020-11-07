@@ -1,5 +1,5 @@
 server: 
-  port: ${EUREKA_PORT1:18761}
+  port: 18761
 eureka: 
   instance:
     hostname: ${HOSTNAME}.eureka-server
@@ -8,6 +8,5 @@ eureka:
   client: 
     register-with-eureka: true 
     fetch-registry: true
-    #eureka-server-port: ${server.port}
     service-url:
-      defaultZone: ${EUREKA_SERVERS}
+      defaultZone: ${eureka_servers}
