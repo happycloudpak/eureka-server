@@ -1,12 +1,3 @@
-##########################
-# ㅇ standalone mode: profile 'default' 이용 
-# ㅇ replica mode: 
-#   - 필요한 만큼 profile을 정의
-#   - eureka.client.service-url.defaultZone에 다른 eureka server주소를 지정 
-#   - eureka.server.renewal-percent-threshold: '..renewals are lesser than threshold..'경고가 나오는 경우 이 값을 낮추면 됨 
-# * eureka하위의 key이름은 camel형식과 dash사용 형식 모두 지원
-# * 만약, 상호 복제 시 connection refused 에러가 나면 eureka.client.eureka-server-port를 지정 
-##########################
 spring: 
   application:
     name: eureka-server
